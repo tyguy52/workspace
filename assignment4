@@ -1,0 +1,42 @@
+package assignment4;
+
+public class Assignment4
+{
+	public static void main(String[]args)
+	{
+		buildTable("Angle", "Sin", "Cos", "Tan");
+		populateTable(0,180,0.10);
+		
+	}
+	
+	public static void printChar(int n, char ch)
+	{
+		for(int i = 0; i<n; i++)
+			System.out.print(ch);
+		System.out.print("\t");
+	}
+	
+	public static void buildTable(String s1, String s2, String s3, String s4)
+	{
+		System.out.println(s1+"\t"+s2+"\t"+s3+"\t"+s4);
+		printChar(s1.length(), '-');
+		printChar(s2.length(), '-');
+		printChar(s3.length(), '-');
+		printChar(s4.length(), '-');
+		System.out.println();
+	}
+	
+	public static void populateTable(double start, double end, double increment )
+	{
+		for(double i=start; i<=end; i=i+increment)
+		{
+			double rad = i*Math.PI/180;
+			System.out.println(i+"\t"+formatTable(Math.sin(rad))+"\t"+formatTable(Math.cos(rad))+"\t"+formatTable(Math.tan(rad)));
+		}
+	}
+	
+	public static double formatTable(double value)
+	{
+		return Math.round(value*10000.0)/10000.0;
+	}
+}
